@@ -17,7 +17,7 @@
 ### 使用方法 Model Usage
 
 #### 模型下载
-本项目仅提供微调后的LORA权重文件。[模型下载]()
+本项目仅提供微调后的LORA权重文件。[模型下载](https://github.com/AgBigdataLab/Ancient-Agri-LLM/tree/main/gunong_lora)
 #### 模型调用
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
