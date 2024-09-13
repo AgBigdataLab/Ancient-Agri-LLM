@@ -24,12 +24,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from peft import PeftModel
 
-mode_path = 'glm-4-9b'
-lora_path = './ancient_agri_lora'
+MODEL_PATH = "THUDM/glm-4-9b-chat"
+lora_path = './gunong_lora'
 # 加载tokenizer
-tokenizer = AutoTokenizer.from_pretrained(mode_path, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
 # 加载模型
-model = AutoModelForCausalLM.from_pretrained(mode_path, device_map="auto",torch_dtype=torch.bfloat16, trust_remote_code=True).eval()
+model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, device_map="auto",torch_dtype=torch.bfloat16, trust_remote_code=True).eval()
 # 加载lora权重
 model = PeftModel.from_pretrained(model, model_id=lora_path)
 
@@ -40,6 +40,7 @@ inputs = tokenizer.apply_chat_template([{"role": "user", "content": prompt+text}
                                     return_tensors="pt",
                                     return_dict=True
                                     ).to('cuda')
+
 gen_kwargs = {"max_length": 521, "do_sample": False}
 with torch.no_grad():
     outputs = model.generate(**inputs, **gen_kwargs)
