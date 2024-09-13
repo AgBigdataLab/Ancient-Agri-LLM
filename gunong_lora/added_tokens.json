@@ -1,0 +1,16 @@
+{
+  "<eop>": 151334,
+  "<sop>": 151333,
+  "<|assistant|>": 151337,
+  "<|begin_of_image|>": 151339,
+  "<|begin_of_video|>": 151341,
+  "<|end_of_image|>": 151340,
+  "<|end_of_video|>": 151342,
+  "<|endoftext|>": 151329,
+  "<|observation|>": 151338,
+  "<|system|>": 151335,
+  "<|user|>": 151336,
+  "[MASK]": 151330,
+  "[gMASK]": 151331,
+  "[sMASK]": 151332
+}
